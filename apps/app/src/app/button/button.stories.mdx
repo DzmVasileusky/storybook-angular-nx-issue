@@ -1,0 +1,126 @@
+import { MatButtonModule } from '@angular/material/button';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+
+<Meta
+    argTypes={{
+        disabled: {
+            description: 'Disabled state',
+            options: ['', 'disabled'],
+            control: {
+                labels: {
+                    '': 'Active',
+                    disabled: 'Disabled'
+                },
+                type: 'radio'
+            }
+        },
+        style: {
+            description: 'Style of the button',
+            options: ['primary', 'warn', 'accent'],
+            control: {
+                labels: {
+                    'primary': 'Primary',
+                    'warn': 'Warn',
+                    'accent': 'Accent'
+                },
+                type: 'select'
+            }
+        }
+    }}
+    decorators={[
+        moduleMetadata({
+            imports: [MatButtonModule]
+        })
+        ]}
+    title="Components/Button"
+/>
+
+export const ButtonTemplate = (args) => ({
+    props: args,
+    template: `<button mat-button color="${args.style}" ${args.disabled}>Button</button>`
+});
+
+# Button
+
+-   [Overview](#overview)
+-   [Modifications](#modification)
+-   [Styles](#styles)
+-   [Primary](#primary)
+-   [Warn](#warn)
+-   [Accent](#accent)
+-   [Disabled](#disabled)
+
+## Overview
+
+<Canvas>
+    <Story
+        name="Overview"
+        args={{
+            disabled: '',
+            style: 'primary'
+        }}
+    >
+        {ButtonTemplate.bind({})}
+    </Story>
+</Canvas>
+
+# Modifications
+
+## Styles
+
+### Primary
+
+<Canvas>
+    <Story
+        name="Primary"
+        args={{
+            disabled: '',
+            style: 'primary'
+        }}
+    >
+        {ButtonTemplate.bind({})}
+    </Story>
+</Canvas>
+
+### Warn
+
+<Canvas>
+    <Story
+        name="Warn"
+        args={{
+            disabled: '',
+            style: 'warn'
+        }}
+    >
+        {ButtonTemplate.bind({})}
+    </Story>
+</Canvas>
+
+### Accent
+
+<Canvas>
+    <Story
+        name="Accent"
+        args={{
+            disabled: '',
+            style: 'accent'
+        }}
+    >
+        {ButtonTemplate.bind({})}
+    </Story>
+</Canvas>
+
+## Disabled
+
+<Canvas>
+    <Story
+        name="Disabled"
+        args={{
+            disabled: 'disabled',
+            style: 'primary'
+        }}
+    >
+        {ButtonTemplate.bind({})}
+    </Story>
+</Canvas>
